@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confessions Sign-Up</title>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <main>
+        <% if(!isAuth){ %>
+            <div>
+                <p>You must be Signed In to become a member...<a href="/sign-in">Click to Sign-In</a></p>
+            </div>
+            <% }else{ %>
+                <h3>Fill in your key to become a member</h3>
+                <% if(errors){ %>
+                    <p><%= errors.msg %></p>
+                <% } %>
+                <form action="/member-login" method="POST">
+                    <label for="key">Key:</label>
+                    <input type="password" name="key" id="key">
+                    <button type="submit">Submit</button>
+                </form>
+                <% } %>
+    </main>
+</body>
+
+</html>

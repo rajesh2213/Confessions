@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confessions Home-Page</title>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header')  %>
+    </header>
+    <main>
+        <h1><%= currentUser ? 'Welcome back ' + currentUser.first_name + ' to confessions' : 'Welcome to confessions' %></h1>
+        <div>
+            <div>
+                <button><a href="/posts">Take a Peek</a></button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

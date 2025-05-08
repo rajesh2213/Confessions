@@ -1,0 +1,17 @@
+<nav>
+    <h1>
+        <a href="/">Confessions</a>
+        <div>
+            <button><a href="/posts">Posts</a></button>
+            <% if(currentUser && !currentUser.is_member){ %>
+                <button><a href="/member-login">Become a Member</a></button>
+            <% } %>
+            <% if(currentUser){ %>
+                <button><a href="logout">logOut</a></button>
+            <% }else{ %>
+                <button><a href="/sign-in">Sign-In</a></button>
+                <button><a href="/sign-up">Sign-Up</a></button>
+            <% } %>            
+        </div>
+    </h1>
+</nav>

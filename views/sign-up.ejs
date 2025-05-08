@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confessions Sign-Up</title>
+    </head>
+    <body>
+        <header>
+            <%- include('./partials/header')  %>
+        </header>
+        <main>
+            <% if(errors){ %>
+                <div>
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            <% } %>
+            <form action="/sign-up" method="POST">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" value="<%= user?.firstName || '' %>" >
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" value="<%= user?.lastName || '' %>" >
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="<%= user?.email || '' %>" >
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" >
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" >
+                <label for="isAdmin">Check to Sign up as Admin</label>
+                <input type="checkbox" id="isAdmin" name="isAdmin" value="yes">
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    </body>
+    </html>
